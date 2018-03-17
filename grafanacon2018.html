@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>GrafanaCon 2018 highlights</title>
+
+		<link rel="stylesheet" href="https://cavalheiro.github.io/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="https://cavalheiro.github.io/reveal.js/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="https://cavalheiro.github.io/reveal.js/lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown data-background-image="https://pbs.twimg.com/media/DXMLibDWsAAAyQ1.jpg">
+					<textarea data-template>
+						## GrafanaCon 2018
+						<br>
+						<br>
+						<br>
+						<br>
+						- 2 days, ~30 speakers, 200+ people
+						- event area was nice and was well organized
+						- overall experience was quite good
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Business insights
+						- hosted Grafana (Cloud) is the main revenue source at the moment
+						- Grafana to invest in Prometheus (aquisition?)
+						- recent VC investments in TimescaleDB (12.4M) and InfluxDB (35M)
+					</textarea>
+				</section>
+				<section>
+					<section data-background-image="https://grafana.com/blog/img/docs/v50/new_ux_nav.png">
+						<h2>Grafana v5</h2>
+						<br>
+						<a href="#" class="navigate-down">
+							<img data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## Grafana v5
+							- improved UX and page design
+							- dashboard folders, teams and permissions
+							- configuration as code
+						</textarea>
+					</section>
+					<section>
+						<h2>New light theme</h2>
+						<br>
+						<img data-src="https://grafana.com/blog/img/docs/v50/new_white_theme.png" alt="">
+					</section>
+					<section>
+						<h2>Teams and permissions</h2>
+						<br>
+						<img data-src="https://grafana.com/blog/img/docs/v50/folder_permissions.png" alt="">
+					</section>
+					<section>
+						<h2>Dashboard Folders</h2>
+						<br>
+						<img data-src="https://grafana.com/blog/img/docs/v50/new_search.png" alt="">
+						More on https://grafana.com/blog/2018/03/01/grafana-v5.0-released/
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is interesting for us</h2>
+						<br>
+						<a href="#" class="navigate-down">
+							<img data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## Simplified provisioning
+							- json dashboards are native at v5
+							- using yaml for dashboards is possible:
+								- https://github.com/jakubplichta/grafana-dashboard-builder
+								- https://docs.openstack.org/infra/grafyaml
+							- a python DSL is also available: https://github.com/weaveworks/grafanalib
+							- Grafonnet is a jsonnet library that generates dashboard JSON files
+								- https://github.com/grafana/grafonnet-lib
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## Grafana usage in QA process
+							- putting test results in context
+							- live monitoring of performance tests
+							- data visualization of test execution data:
+								- junit, cobertura, jmeter -> influxdb -> grafana
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							### Challenges of integrating Grafana with Prometheus
+							- how to alert on service and not individual servers?
+							- how to define "similar" panels?
+							- Dynamic resolution
+								- how to deal with data scrapped with different resolutions?
+								- how to align that data on the same graphs?
+						</textarea>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What else?</h2>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## TSDB discussion panel
+							- people from Prometheus, Graphite, Influxdb and TimescaleDB
+							- discussions mostly around storage, scalability & query language
+							- promQL seems to be in a path of becoming some kind of standard (all the engines above support it or are planning to)
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							## Some interesting use cases
+							- Running a power plant with Grafana
+							- Observability at a city scale
+							- Weather impact on energy business
+						</textarea>
+					</section>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Thank you!
+
+						more details on <br>
+						https://cavalheiro.github.io/texts/grafanacon2018.html
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cavalheiro.github.io/reveal.js/lib/js/head.min.js"></script>
+		<script src="https://cavalheiro.github.io/reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
