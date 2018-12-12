@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Monitoring with Prometheus and Grafana</title>
+
+		<link rel="stylesheet" href="https://cavalheiro.github.io/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="https://cavalheiro.github.io/presentations/jc.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="https://cavalheiro.github.io/reveal.js/lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Slide # -->
+				<section data-markdown data-background-image="img/mdashboard2.png">
+					<textarea data-template>
+						# Monitoring
+						## with Prometheus and Grafana
+						<br><br>
+
+						jcavalheiro@suse.de
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Prometheus
+						<img data-src="img/prom-logo.png">
+						* Originally built at SoundCloud
+						* Prometheus works well for recording numeric time series
+						* Data collection happens via a pull model over HTTP
+						* Targets are set via static configuration or service discovery
+					</textarea>
+				</section>
+
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Architecture Overview
+						<img data-src="img/arch1.png">
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Prometheus metrics
+						<br>
+						<img data-src="img/metric.png">
+						<br>
+						* Metrics have a name, a set of labels, a timestamp and a value
+						* 'job' and 'instance' labels are automatically added by Prometheus
+							- instance - host from which you scrape metrics
+							- job - collection of instances with the same purpose
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						### Metric types
+						  * Counter - cumulative values. ex: number of errors
+						  * Gauge - can go up or down. ex: temperature
+						  * Histogram - count observations in buckets
+						  * Summary - similar to histogram, but provides totals (sum and count)
+						  * Learn more: https://prometheus.io/docs/concepts/metric_types/
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Querying Prometheus
+						### PromQL
+						* Functional expression language
+						* Easily filter multi-dimensional time-series
+						* Regex matching
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## PromQL
+						## Demo
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Alert Manager
+						<img data-src="img/arch2.png">
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						### Alert Manager
+						* Takes care of deduplicating, grouping, and routing
+						  - also takes care of silencing and inhibition of alerts
+						* Integration with email, PagerDuty, or OpsGenie
+						* Uses PromQL
+						* HTTP API and cli tool
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						### Alert config example
+						<img data-src="img/alert-example.png">
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Grafana
+						<img data-src="img/grafana-logo.png">
+						* Metrics dashboard and graph editor
+						* Multiple visualization options to help you understand your data
+						* Supports dozens of databases
+						* Plugin system
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Grafana
+						## Demo
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+					</textarea>
+				</section>
+
+				<!-- Slide # -->
+				<section data-markdown>
+					<textarea data-template>
+						## Thank you!
+						<br>
+						### Questions?
+						<br>
+						https://cavalheiro.github.io/presentations/prom-grafana
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="https://cavalheiro.github.io/reveal.js/lib/js/head.min.js"></script>
+		<script src="https://cavalheiro.github.io/reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				width: "90%",
+				height: "90%",
+				// defaultTiming: 120,
+				history: true,
+				transition: 'fade',
+				dependencies: [
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'https://cavalheiro.github.io/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
